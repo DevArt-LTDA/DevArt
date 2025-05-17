@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CatalogosApplication<Catalogos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.DevArt.Catalogos.CatalogosApplication",
+            "projectName": "Catalogos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=50455 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=Catalogos"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TransaccionesApplication<Transacciones>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.DevArt.Transacciones.TransaccionesApplication",
+            "projectName": "Transacciones",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=50613 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=Transacciones"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UsuariosApplication<Usuarios>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.DevArt.Usuarios.UsuariosApplication",
+            "projectName": "Usuarios",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
