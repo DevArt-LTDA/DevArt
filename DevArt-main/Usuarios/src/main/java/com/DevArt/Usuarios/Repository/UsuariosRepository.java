@@ -1,4 +1,4 @@
-package com.DevArt.Usuarios.Repository;
+package com.DevArt.Usuarios.repository;
 import com.DevArt.Usuarios.model.Usuarios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,7 +7,6 @@ import java.util.List;
 
 @Repository
 public interface UsuariosRepository extends JpaRepository<Usuarios, String> {
-    // Aquí puedes definir métodos personalizados si es necesario
     List<Usuarios> findByRut(String rut);
     List<Usuarios> findByPrimerNombre(String primerNombre);
     List<Usuarios> findBySegundoNombre(String segundoNombre);
@@ -16,9 +15,6 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, String> {
     List<Usuarios> findByCorreo(String correo);
     List<Usuarios> findByFechaNacimiento(String fechaNacimiento);
     List<Usuarios> findByTelefono(String telefono);
-    
-    
 
-    // Por ejemplo, encontrar usuarios por nombre, email, etc.
 
 }

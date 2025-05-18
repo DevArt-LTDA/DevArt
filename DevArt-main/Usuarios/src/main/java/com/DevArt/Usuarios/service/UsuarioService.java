@@ -1,7 +1,8 @@
 package com.DevArt.Usuarios.service;
 
 import com.DevArt.Usuarios.model.Usuarios;
-import com.DevArt.Usuarios.Repository.UsuariosRepository;
+import com.DevArt.Usuarios.repository.UsuariosRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
