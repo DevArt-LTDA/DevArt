@@ -38,4 +38,6 @@ public class Usuarios {
     private String correo;
     @Column(name = "fecha_nacimiento", length = 255, unique = true, nullable = false)
     private String fecha_nacimiento;
+    @Column(name = "rol", length = 255, unique = false, nullable = false)
+    private String rol;
     }
