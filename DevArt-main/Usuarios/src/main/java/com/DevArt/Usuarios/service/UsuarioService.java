@@ -1,7 +1,7 @@
 package com.DevArt.Usuarios.service;
 
 import com.DevArt.Usuarios.model.Usuarios;
-import com.DevArt.Usuarios.Repository.UsuariosRepository;
+import com.DevArt.Usuarios.repository.UsuariosRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,30 +68,54 @@ public class UsuarioService {
                 .filter(usuario -> usuario.getFecha_nacimiento().equals(fechaNacimiento))
                 .toList();
     }
-    
-    // guardar un nuevo usuario
-    public Usuarios saveUsuario(Usuarios usuario) {
+    //Get Usuario por el telefono
+    public List<Usuarios> getUsuarioByTelefono(String telefono) {
+        return usuariosRepository.findAll().stream()
+                .filter(usuario -> usuario.getTelefono().equals(telefono))
+                .toList();
+    }
+
+
+    //creacion de un nuveo usuario
+    public Usuarios createUsuario(Usuarios usuario) {
+        if (usuario.getRut() == null || usuario.getRut().isEmpty()) {
+            throw new IllegalArgumentException("El rut no puede ser nulo o estar vacio");
+        }
+        if (usuariosRepository.existsById(usuario.getRut())) {
+            throw new RuntimeException("usuario ya existe con su rut: " + usuario.getRut());
+        }   
         return usuariosRepository.save(usuario);
     }
 
 
-    // actualizar un usuario existente
-    public Usuarios updateUsuario(Usuarios usuario) {
-        if (usuariosRepository.existsById(usuario.getRut())) {
-            return usuariosRepository.save(usuario);
-        } else {
-            throw new RuntimeException("Usuario no encontrado con el rut: " + usuario.getRut());
-        }
 
-    }
-    // eliminar un usuario por rut
-    public void deleteUsuario(String rut) {
-        if (usuariosRepository.existsById(rut)) {
-            usuariosRepository.deleteById(rut);
-        } else {
+    // actualizar un usuario existente
+    public Usuarios updateUsuario(String rut, Usuarios usuario) {
+        if (!usuariosRepository.existsById(rut)) {
             throw new RuntimeException("Usuario no encontrado con el rut: " + rut);
         }
+        // aca se hacen los cambios de los atributos del usuario
+        Usuarios existingUsuario = usuariosRepository.findById(rut).orElseThrow(() -> new RuntimeException("usuario no encontrado con el rut: " + rut));
+        existingUsuario.setPrimerNombre(usuario.getPrimerNombre());
+        existingUsuario.setSegundoNombre(usuario.getSegundoNombre());
+        existingUsuario.setPrimApellido(usuario.getPrimApellido());
+        existingUsuario.setSegApellido(usuario.getSegApellido());
+        existingUsuario.setCorreo(usuario.getCorreo());
+        existingUsuario.setFecha_nacimiento(usuario.getFecha_nacimiento());
+        existingUsuario.setTelefono(usuario.getTelefono());
+        // guardado de usuario actualizado
+        return usuariosRepository.save(existingUsuario);
     }
+
+
+    // eliminar un usuario por rut
+    public void deleteUsuario(String rut) {
+        if (!usuariosRepository.existsById(rut)) {
+            throw new RuntimeException("Usuario no encontrado con el rut: " + rut);
+        }
+        usuariosRepository.deleteById(rut);
+    }
+
     // Verificar si un usuario existe por rut
     public boolean existsByRut(String rut) {
         return usuariosRepository.existsById(rut);

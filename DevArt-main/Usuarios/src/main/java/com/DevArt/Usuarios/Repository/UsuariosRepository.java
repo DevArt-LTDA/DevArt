@@ -1,4 +1,4 @@
-package com.DevArt.Usuarios.Repository;
+package com.DevArt.Usuarios.repository;
 import com.DevArt.Usuarios.model.Usuarios;
 
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface UsuariosRepository extends JpaRepository<Usuarios, String> {
-    //metodos de busqueda
+    //metodos de busqueda repository
     List<Usuarios> findByRut(String rut);
     List<Usuarios> findByPrimerNombre(String primerNombre);
     List<Usuarios> findBySegundoNombre(String segundoNombre);
