@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-public class Libro {
+public class Usuarios {
     @Id
     @Column(name = "rut", length = 255, unique = false, nullable = false)
     private String rut;
@@ -37,5 +37,5 @@ public class Libro {
     @Column(name = "correo", length = 255, unique = true, nullable = false)
     private String correo;
     @Column(name = "fecha_nacimiento", length = 255, unique = true, nullable = false)
-    private Date fecha_nacimiento;
+    private String fecha_nacimiento;
     }
