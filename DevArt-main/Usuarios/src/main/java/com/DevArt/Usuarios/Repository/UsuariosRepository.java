@@ -7,6 +7,7 @@ import java.util.List;
 
 @Repository
 public interface UsuariosRepository extends JpaRepository<Usuarios, String> {
+    //metodos de busqueda
     List<Usuarios> findByRut(String rut);
     List<Usuarios> findByPrimerNombre(String primerNombre);
     List<Usuarios> findBySegundoNombre(String segundoNombre);
