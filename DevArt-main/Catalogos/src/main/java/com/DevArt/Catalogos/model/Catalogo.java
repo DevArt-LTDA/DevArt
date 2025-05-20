@@ -22,19 +22,37 @@ public class Catalogo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "nombre", length = 255, unique = true, nullable = false)
+    @Column(name = "nombre_producto", length = 255, unique = true, nullable = false)
     private String nombre;
+    
+    @Column(name = "tipo_producto", length = 255, unique = true, nullable = false)
+    private int tipo;    
 
-    @Column(name = "descripcion", length = 255, unique = true, nullable = false)    
+    
+    @Column(name = "descripcion_producto", length = 255, unique = true, nullable = false)    
     private String descripcion;
 
-    @Column(name = "fecha_creacion", nullable = false)
+
+    @Column(name = "precio_producto", length = 255, unique = true, nullable = false)
+    private int precio;
+
+    @Column(name = "fecha_despliegue")
+    private LocalDateTime fechaDespliegue;
+
+    @Column(name = "estado_desarrollo")
+    private String estadoDesarrollo;    
+
+    @Column(name = "tiempo_entrega", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private LocalDateTime fechaCreacion;
+
 
     @Column(name = "fecha_modificacion", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private LocalDateTime fechaModificacion;
+
+
+    
 
 }
 
