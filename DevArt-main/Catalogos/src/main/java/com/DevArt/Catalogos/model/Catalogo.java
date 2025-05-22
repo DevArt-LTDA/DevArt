@@ -42,14 +42,14 @@ public class Catalogo {
     @Column(name = "estado_desarrollo")
     private String estadoDesarrollo;    
 
-    @Column(name = "tiempo_entrega", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private LocalDateTime fechaCreacion;
+    //@Column(name = "tiempo_entrega", nullable = false)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //private LocalDateTime fechaCreacion;
 
 
-    @Column(name = "fecha_modificacion", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private LocalDateTime fechaModificacion;
+    //@Column(name = "fecha_modificacion", nullable = false)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //private LocalDateTime fechaModificacion;
 
 
     
