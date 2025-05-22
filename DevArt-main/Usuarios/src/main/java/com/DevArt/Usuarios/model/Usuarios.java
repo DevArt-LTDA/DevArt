@@ -36,7 +36,7 @@ public class Usuarios {
     private String fechaNacimiento; 
     @Column(name = "rol", length = 255, unique = false, nullable = false)
     private String rol;
-    @Column(name = "departamento", length = 255, unique = true, nullable = false)
+    @Column(name = "departamento", length = 255, unique = false, nullable = false)
     private String departamento;
     @Column(name = "cargo", length = 255, unique = false, nullable = false)
     private String cargo;
