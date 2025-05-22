@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
+import java.util.Optional;
 @Service
 @Transactional
 
@@ -21,9 +22,10 @@ public class CatalogoService {
         return catalogoRepository.findAll();
     }
     // buscar por ID
-    public List<Catalogo> getCatalogoByID(int id) {
-        return catalogoRepository.findByID(id);
+    public Optional<Catalogo> getCatalogoByID(int id) {
+        return catalogoRepository.findById(id);
     }
+
     // buscar por nombre
     public List<Catalogo> getCatalogoByNombre(String nombre) {
         return catalogoRepository.findByNombre(nombre);
@@ -50,14 +52,7 @@ public class CatalogoService {
     public List<Catalogo> getCatalogoByEstadoDesarrollo(String estadoDesarrollo) {
         return catalogoRepository.findByEstadoDesarrollo(estadoDesarrollo);
     }
-    // buscar por fecha de creacion
-    public List<Catalogo> getCatalogoByFechaCreacion(LocalDateTime fechaCreacion) {
-        return catalogoRepository.findByFechaCreacion(fechaCreacion);
-    }
-    // buscar por fecha de modificacion
-    public List<Catalogo> getCatalogoByFechaModificacion(LocalDateTime fechaModificacion) {
-        return catalogoRepository.findByFechaCreacion(fechaModificacion);
-    }
+
 
     // Agregar un catalogo
     public Catalogo addCatalogo(Catalogo catalogo) {

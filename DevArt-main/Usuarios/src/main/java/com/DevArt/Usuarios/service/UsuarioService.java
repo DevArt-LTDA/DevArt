@@ -79,13 +79,7 @@ public class UsuarioService {
 
 
     //creacion de un nuveo usuario
-    public Usuarios createUsuario(Usuarios usuario) {
-        if (usuario.getRut() == null || usuario.getRut().isEmpty()) {
-            throw new IllegalArgumentException("El rut no puede ser nulo o estar vacio");
-        }
-        if (usuariosRepository.existsById(usuario.getRut())) {
-            throw new RuntimeException("usuario ya existe con su rut: " + usuario.getRut());
-        }   
+    public Usuarios createUsuario(Usuarios usuario){
         return usuariosRepository.save(usuario);
     }
 

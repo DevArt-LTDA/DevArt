@@ -18,6 +18,4 @@ public interface CatalogoRepository extends JpaRepository<Catalogo, Integer> {
     List<Catalogo> findByPrecio(int precio);
     List<Catalogo> findByFechaDespliegue(LocalDateTime fechaDespliegue);
     List<Catalogo> findByEstadoDesarrollo(String estadoDesarrollo);
-    List<Catalogo> findByFechaCreacion(LocalDateTime fechaCreacion);
-
 }

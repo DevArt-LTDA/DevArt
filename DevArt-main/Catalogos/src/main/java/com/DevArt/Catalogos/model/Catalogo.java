@@ -26,7 +26,7 @@ public class Catalogo {
     private String nombre;
     
     @Column(name = "tipo_producto", length = 255, unique = true, nullable = false)
-    private int tipo;    
+    private String tipo;    
 
     
     @Column(name = "descripcion_producto", length = 255, unique = true, nullable = false)    
