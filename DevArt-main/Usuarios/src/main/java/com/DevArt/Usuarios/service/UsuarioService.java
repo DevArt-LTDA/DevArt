@@ -3,10 +3,11 @@ package com.DevArt.Usuarios.service;
 import com.DevArt.Usuarios.model.Usuarios;
 import com.DevArt.Usuarios.repository.UsuariosRepository;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
@@ -65,15 +66,16 @@ public class UsuarioService {
     // buscar por fecha de nacimiento
     public List<Usuarios> getUsuarioByFechaNacimiento(String fechaNacimiento) {
         return usuariosRepository.findAll().stream()
-                .filter(usuario -> usuario.getFecha_nacimiento().equals(fechaNacimiento))
+                .filter(usuario -> usuario.getFechaNacimiento().equals(fechaNacimiento))
                 .toList();
     }
     //Get Usuario por el telefono
     public List<Usuarios> getUsuarioByTelefono(String telefono) {
         return usuariosRepository.findAll().stream()
-                .filter(usuario -> usuario.getTelefono().equals(telefono))
+                .filter(usuario -> usuario.getTelefono() == telefono)
                 .toList();
     }
+
 
 
     //creacion de un nuveo usuario
@@ -101,7 +103,7 @@ public class UsuarioService {
         existingUsuario.setPrimApellido(usuario.getPrimApellido());
         existingUsuario.setSegApellido(usuario.getSegApellido());
         existingUsuario.setCorreo(usuario.getCorreo());
-        existingUsuario.setFecha_nacimiento(usuario.getFecha_nacimiento());
+        existingUsuario.setFechaNacimiento(usuario.getFechaNacimiento());
         existingUsuario.setTelefono(usuario.getTelefono());
         // guardado de usuario actualizado
         return usuariosRepository.save(existingUsuario);
