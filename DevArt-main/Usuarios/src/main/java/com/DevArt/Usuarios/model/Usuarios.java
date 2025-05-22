@@ -33,7 +33,7 @@ public class Usuarios {
     @Column(name = "correo", length = 255, unique = true, nullable = false)
     private String correo;
     @Column(name = "fecha_nacimiento", length = 255, unique = true, nullable = false)
-    private String fecha_nacimiento;
+    private String fechaNacimiento; 
     @Column(name = "rol", length = 255, unique = false, nullable = false)
     private String rol;
     @Column(name = "departamento", length = 255, unique = true, nullable = false)

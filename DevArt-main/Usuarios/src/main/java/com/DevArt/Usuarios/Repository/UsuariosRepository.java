@@ -16,7 +16,7 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, String> {
     List<Usuarios> findByPrimApellido(String primApellido);
     List<Usuarios> findBySegApellido(String segApellido);
     List<Usuarios> findByCorreo(String correo);
-    List<Usuarios> findByFechaNacimiento(String fechaNacimiento);
+    List<Usuarios> findByFechaNacimiento(String fechaNacimiento); 
     List<Usuarios> findByTelefono(String telefono);
 
 
