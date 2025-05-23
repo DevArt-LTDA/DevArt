@@ -10,6 +10,7 @@ import java.util.Optional;
 @Service
 @Transactional
 
+// Traspaso a main
 
 public class CatalogoService {
     @Autowired
