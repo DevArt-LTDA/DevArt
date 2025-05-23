@@ -27,6 +27,12 @@ public class UsuariosController {
         return ResponseEntity.ok(usuarioService.getAllUsuarios());
     }
 
+    @GetMapping("/existe/{rut}")
+    public ResponseEntity<Boolean> existeUsuario(@PathVariable("rut") String rut) {
+        List<Usuarios> usuarios = usuarioService.getUsuarioByRut(rut);
+        return ResponseEntity.ok(!usuarios.isEmpty());
+    }
+
     @GetMapping("/{rut}")
     public ResponseEntity<List<Usuarios>> getUsuarioByRut(@PathVariable("rut") String rut) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByRut(rut);
@@ -111,6 +117,6 @@ public class UsuariosController {
         usuarioService.deleteUsuario(rut);
         return ResponseEntity.noContent().build();
     }    
-
+    
 
 }

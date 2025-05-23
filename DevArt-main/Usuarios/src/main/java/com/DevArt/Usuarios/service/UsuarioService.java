@@ -1,7 +1,7 @@
 package com.DevArt.Usuarios.service;
 
 import com.DevArt.Usuarios.model.Usuarios;
-import com.DevArt.Usuarios.Repository.UsuariosRepository;
+import com.DevArt.Usuarios.repository.UsuariosRepository;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,7 +120,10 @@ public class UsuarioService {
     public long countUsuarios() {
         return usuariosRepository.count();
     }
-    
+    // Verificar si un usuario existe por rut
+    public boolean existeUsuarioPorRut(String rut) {
+        return usuariosRepository.existsById(rut);
+    }
     
 }
 
