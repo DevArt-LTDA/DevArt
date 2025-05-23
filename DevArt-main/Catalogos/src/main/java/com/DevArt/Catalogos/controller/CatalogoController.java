@@ -1,6 +1,6 @@
 package com.DevArt.Catalogos.controller;
 import com.DevArt.Catalogos.controller.CatalogoController;
-//Traspaso a mainv2
+//Traspaso a main
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
