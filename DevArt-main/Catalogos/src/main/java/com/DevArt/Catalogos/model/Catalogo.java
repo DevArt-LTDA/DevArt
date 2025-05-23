@@ -2,7 +2,7 @@ package com.DevArt.Catalogos.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-//Traspaso a main
+//Traspaso a mainv2
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

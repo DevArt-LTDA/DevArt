@@ -2,6 +2,7 @@ package com.DevArt.Catalogos.repository;
 import com.DevArt.Catalogos.model.Catalogo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+//Traspaso a mainv2
 
 import java.time.LocalDateTime;
 import java.util.List;
