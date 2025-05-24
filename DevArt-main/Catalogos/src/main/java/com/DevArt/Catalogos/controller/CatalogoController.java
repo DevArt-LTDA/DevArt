@@ -1,21 +1,22 @@
 package com.DevArt.Catalogos.controller;
-import com.DevArt.Catalogos.controller.CatalogoController;
+//import com.DevArt.Catalogos.controller.CatalogoController;
 //Traspaso a main
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.DevArt.Catalogos.service.CatalogoService;
-import org.springframework.http.ResponseEntity;
-
 import java.time.LocalDateTime;
 import java.util.List;
-import com.DevArt.Catalogos.model.Catalogo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.DevArt.Catalogos.model.Catalogo;
+import com.DevArt.Catalogos.service.CatalogoService;
 
 
 @RestController
