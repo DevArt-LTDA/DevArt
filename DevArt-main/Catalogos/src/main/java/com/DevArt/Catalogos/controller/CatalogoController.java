@@ -25,11 +25,14 @@ public class CatalogoController {
     private CatalogoService catalogoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Catalogo> getCatalogoById(@PathVariable("id") int id) {
-        return catalogoService.getCatalogoByID(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<List<Catalogo>> getCatalogoByID(@PathVariable("id") int id) {
+        List<Catalogo> catalogos = catalogoService.getCatalogoById(id);
+        if (catalogos.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(catalogos);
     }
+
     @GetMapping("/nombre/{nombre}")
     public ResponseEntity<List<Catalogo>> getCatalogoByNombre(@PathVariable("nombre") String nombre) {
         List<Catalogo> catalogos = catalogoService.getCatalogoByNombre(nombre);
