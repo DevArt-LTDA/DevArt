@@ -17,6 +17,10 @@ public class Inventario {
     @Id
     @Column(name = "rut_programador", nullable = false, length = 255)
     private String rutProgramador;
+    
     @Column(name = "horas_disponibles", nullable = false, length = 100)
     private int  horaDisponible;
+    
+    @Column(name = "Estado", nullable = false, length = 100)
+    private boolean Estado;
 }
