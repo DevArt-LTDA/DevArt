@@ -14,13 +14,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Inventario {
+
+
     @Id
-    @Column(name = "rut_programador", nullable = false, length = 255)
+    @Column(name = "id", length = 255, unique = true, nullable = false)
+    private int id;
+
+    @Column(name = "rut_programador", nullable = true, length = 255)
     private String rutProgramador;
     
-    @Column(name = "horas_disponibles", nullable = false, length = 100)
+    @Column(name = "horas_disponibles", nullable = true, length = 100)
     private int  horaDisponible;
     
-    @Column(name = "Estado", nullable = false, length = 100)
-    private boolean Estado;
+    @Column(name = "Estado", nullable = true, length = 100)
+    private boolean estado;
 }
