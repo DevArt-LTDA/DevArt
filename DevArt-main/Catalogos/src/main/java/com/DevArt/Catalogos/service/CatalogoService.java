@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
-import java.util.Optional;
 @Service
 @Transactional
 
@@ -22,9 +21,10 @@ public class CatalogoService {
         return catalogoRepository.findAll();
     }
     // buscar por ID
-    public Optional<Catalogo> getCatalogoByID(int id) {
+    public List<Catalogo> getCatalogoById(int id) {
         return catalogoRepository.findById(id);
     }
+
 
     // buscar por nombre
     public List<Catalogo> getCatalogoByNombre(String nombre) {

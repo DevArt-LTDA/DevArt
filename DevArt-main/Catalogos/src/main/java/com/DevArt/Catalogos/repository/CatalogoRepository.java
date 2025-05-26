@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface CatalogoRepository extends JpaRepository<Catalogo, Integer> {
     // metodos de busqueda repository Catalogo
-    List<Catalogo> findByID(int id);
+    List<Catalogo> findById(int id);
     List<Catalogo> findByNombre(String nombre);
     List<Catalogo> findByTipo(String tipo);
     List<Catalogo> findByDescripcion(String descripcion);

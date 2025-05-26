@@ -1,21 +1,22 @@
 package com.DevArt.Catalogos.controller;
-import com.DevArt.Catalogos.controller.CatalogoController;
+//import com.DevArt.Catalogos.controller.CatalogoController;
 //Traspaso a main
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.DevArt.Catalogos.service.CatalogoService;
-import org.springframework.http.ResponseEntity;
-
 import java.time.LocalDateTime;
 import java.util.List;
-import com.DevArt.Catalogos.model.Catalogo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.DevArt.Catalogos.model.Catalogo;
+import com.DevArt.Catalogos.service.CatalogoService;
 
 
 @RestController
@@ -25,11 +26,14 @@ public class CatalogoController {
     private CatalogoService catalogoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Catalogo> getCatalogoById(@PathVariable("id") int id) {
-        return catalogoService.getCatalogoByID(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<List<Catalogo>> getCatalogoByID(@PathVariable("id") int id) {
+        List<Catalogo> catalogos = catalogoService.getCatalogoById(id);
+        if (catalogos.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(catalogos);
     }
+
     @GetMapping("/nombre/{nombre}")
     public ResponseEntity<List<Catalogo>> getCatalogoByNombre(@PathVariable("nombre") String nombre) {
         List<Catalogo> catalogos = catalogoService.getCatalogoByNombre(nombre);
