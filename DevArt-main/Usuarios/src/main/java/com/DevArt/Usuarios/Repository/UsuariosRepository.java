@@ -1,4 +1,4 @@
-package com.DevArt.Usuarios.Repository;
+package com.DevArt.Usuarios.repository;
 import com.DevArt.Usuarios.model.Usuarios;
 
 
@@ -18,6 +18,4 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, String> {
     List<Usuarios> findByCorreo(String correo);
     List<Usuarios> findByFechaNacimiento(String fechaNacimiento); 
     List<Usuarios> findByTelefono(String telefono);
-
-
 }
