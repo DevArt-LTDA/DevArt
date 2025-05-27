@@ -32,18 +32,18 @@ public class TransaccionesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Transacciones> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<Transacciones> buscarPorId(@PathVariable("rut") Long id) {
         Optional<Transacciones> trans = transaccionesService.obtenerPorId(id);
         return trans.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping("/usuario/{rut}")
-    public ResponseEntity<List<Transacciones>> buscarPorUsuario(@PathVariable String rut) {
+    public ResponseEntity<List<Transacciones>> buscarPorUsuario(@PathVariable("rut") String rut) {
         return ResponseEntity.ok(transaccionesService.obtenerPorRut(rut));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarTransaccion(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarTransaccion(@PathVariable("rut") Long id) {
         transaccionesService.eliminarTransaccion(id);
         return ResponseEntity.noContent().build();
     }
