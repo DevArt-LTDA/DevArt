@@ -1,4 +1,4 @@
-package com.DevArt.Usuarios.Repository;
+package com.DevArt.Usuarios.repository;
 import com.DevArt.Usuarios.model.Usuarios;
 
 
