@@ -42,9 +42,13 @@ public class TransaccionesController {
         return ResponseEntity.ok(transaccionesService.obtenerPorRut(rut));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarTransaccion(@PathVariable("rut") Long id) {
-        transaccionesService.eliminarTransaccion(id);
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("/{rut}")
+    public ResponseEntity<Void> eliminarTransaccionesPorRut(@PathVariable("rut") String rut) {
+        try {
+            transaccionesService.eliminarTransaccionesPorRut(rut);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

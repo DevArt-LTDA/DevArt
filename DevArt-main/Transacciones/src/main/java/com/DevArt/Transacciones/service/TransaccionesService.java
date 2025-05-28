@@ -40,7 +40,13 @@ public class TransaccionesService {
         return transaccionesRepository.findByUsuarioRut(rut);
     }
 
-    public void eliminarTransaccion(Long id) {
-        transaccionesRepository.deleteById(id);
+
+    public void eliminarTransaccionesPorRut(String rut) {
+        List<Transacciones> transacciones = transaccionesRepository.findByUsuarioRut(rut);
+        if (transacciones.isEmpty()) {
+            throw new IllegalArgumentException("No existen transacciones para el RUT " + rut);
+        }
+        transaccionesRepository.deleteByUsuarioRut(rut);
     }
+
 }
