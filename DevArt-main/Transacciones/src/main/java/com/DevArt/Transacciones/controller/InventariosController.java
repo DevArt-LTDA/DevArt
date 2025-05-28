@@ -50,7 +50,7 @@ public class InventariosController {
 
     // Buscar por rut_programador
     @GetMapping("/rut/{rut}")
-    public ResponseEntity<?> buscarPorRut(@PathVariable String rut) {
+    public ResponseEntity<?> buscarPorRut(@PathVariable("rut") String rut) {
         List<Inventario> lista = inventariosService.buscarPorRut(rut);
         if (lista.isEmpty()) {
             return ResponseEntity.status(404).body("No se encontraron inventarios para el RUT: " + rut);
@@ -60,7 +60,7 @@ public class InventariosController {
 
     // Buscar por horas disponibles
     @GetMapping("/horas/{horas}")
-    public ResponseEntity<?> buscarPorHoras(@PathVariable int horas) {
+    public ResponseEntity<?> buscarPorHoras(@PathVariable("horas") int horas) {
         List<Inventario> lista = inventariosService.buscarPorHorasDisponibles(horas);
         if (lista.isEmpty()) {
             return ResponseEntity.status(404)
@@ -71,7 +71,7 @@ public class InventariosController {
 
     // Buscar por estado
     @GetMapping("/estado/{estado}")
-    public ResponseEntity<?> buscarPorEstado(@PathVariable boolean estado) {
+    public ResponseEntity<?> buscarPorEstado(@PathVariable("estado") boolean estado) {
         List<Inventario> lista = inventariosService.buscarPorEstado(estado);
         if (lista.isEmpty()) {
             return ResponseEntity.status(404).body("No se encontraron inventarios con estado: " + estado);
