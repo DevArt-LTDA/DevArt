@@ -51,7 +51,7 @@ public class UsuariosController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @GetMapping("/segundo-nombre/{segundoNombre}")
+    @GetMapping("/segundoNombre/{segundoNombre}")
     public ResponseEntity<List<Usuarios>> getUsuarioBySegundoNombre(@PathVariable("rut") String segundoNombre) {
         List<Usuarios> usuarios = usuarioService.getUsuarioBySegundoNombre(segundoNombre);
         if (usuarios.isEmpty()) {
@@ -83,7 +83,7 @@ public class UsuariosController {
         }
         return ResponseEntity.ok(usuarios);
     }
-    @GetMapping("/fecha-nacimiento/{fechaNacimiento}")
+    @GetMapping("/fechaNacimiento/{fechaNacimiento}")
     public ResponseEntity<List<Usuarios>> getUsuarioByFechaNacimiento(@PathVariable("rut") String fechaNacimiento) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByFechaNacimiento(fechaNacimiento);
         if (usuarios.isEmpty()) {
