@@ -41,12 +41,13 @@ public class TransaccionesService {
     }
 
 
-    public void eliminarTransaccionesPorRut(String rut) {
-        List<Transacciones> transacciones = transaccionesRepository.findByUsuarioRut(rut);
-        if (transacciones.isEmpty()) {
-            throw new IllegalArgumentException("No existen transacciones para el RUT " + rut);
+
+    //Borrar por id
+    public void eliminarTransaccion(Long id) {
+        if (!transaccionesRepository.existsById(id)) {
+            throw new IllegalArgumentException("Transacción con ID " + id + " no existe.");
         }
-        transaccionesRepository.deleteByUsuarioRut(rut);
+        transaccionesRepository.deleteById(id);
     }
 
 }

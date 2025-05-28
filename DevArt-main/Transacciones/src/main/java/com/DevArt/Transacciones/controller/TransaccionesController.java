@@ -32,7 +32,7 @@ public class TransaccionesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Transacciones> buscarPorId(@PathVariable("rut") Long id) {
+    public ResponseEntity<Transacciones> buscarPorId(@PathVariable("id") Long id) {
         Optional<Transacciones> trans = transaccionesService.obtenerPorId(id);
         return trans.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -42,13 +42,16 @@ public class TransaccionesController {
         return ResponseEntity.ok(transaccionesService.obtenerPorRut(rut));
     }
 
-    @DeleteMapping("/{rut}")
-    public ResponseEntity<Void> eliminarTransaccionesPorRut(@PathVariable("rut") String rut) {
+    //Borrar por id
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eliminarPorId(@PathVariable("id") Long id) {
         try {
-            transaccionesService.eliminarTransaccionesPorRut(rut);
-            return ResponseEntity.noContent().build();
+            transaccionesService.eliminarTransaccion(id);
+            return ResponseEntity.ok("Transacción eliminada correctamente.");
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(404).body("Transacción no encontrada.");
         }
     }
+
+
 }

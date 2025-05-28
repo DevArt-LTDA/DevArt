@@ -43,7 +43,7 @@ public class UsuariosController {
     }
 
     @GetMapping("/nombre/{primerNombre}")
-    public ResponseEntity<List<Usuarios>> getUsuarioByPrimerNombre(@PathVariable("rut") String primerNombre) {
+    public ResponseEntity<List<Usuarios>> getUsuarioByPrimerNombre(@PathVariable("primeroNombre") String primerNombre) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByPrimerNombre(primerNombre);
         if (usuarios.isEmpty()) {
             return ResponseEntity.notFound().build();

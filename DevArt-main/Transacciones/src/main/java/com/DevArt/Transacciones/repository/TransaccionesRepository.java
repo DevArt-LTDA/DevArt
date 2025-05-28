@@ -14,5 +14,4 @@ public interface TransaccionesRepository extends JpaRepository<Transacciones, Lo
 
     List<Transacciones> findByAprobado(Boolean aprobado);
 
-    void deleteByUsuarioRut(String usuarioRut);
 }
