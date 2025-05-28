@@ -40,7 +40,14 @@ public class TransaccionesService {
         return transaccionesRepository.findByUsuarioRut(rut);
     }
 
+
+
+    //Borrar por id
     public void eliminarTransaccion(Long id) {
+        if (!transaccionesRepository.existsById(id)) {
+            throw new IllegalArgumentException("Transacción con ID " + id + " no existe.");
+        }
         transaccionesRepository.deleteById(id);
     }
+
 }
