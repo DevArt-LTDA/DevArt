@@ -44,7 +44,6 @@ public class UsuariosController {
 
     @GetMapping("/nombre/{primerNombre}")
     public ResponseEntity<List<Usuarios>> getUsuarioByPrimerNombre(@PathVariable("primerNombre") String primerNombre) {
-    public ResponseEntity<List<Usuarios>> getUsuarioByPrimerNombre(@PathVariable("primerNombre") String primerNombre) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByPrimerNombre(primerNombre);
         if (usuarios.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -52,8 +51,6 @@ public class UsuariosController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @GetMapping("/segundoNombre/{segundoNombre}")
-    public ResponseEntity<List<Usuarios>> getUsuarioBySegundoNombre(@PathVariable("segundoNombre") String segundoNombre) {
     @GetMapping("/segundo-nombre/{segundoNombre}")
     public ResponseEntity<List<Usuarios>> getUsuarioBySegundoNombre(@PathVariable("segundoNombre") String segundoNombre) {
         List<Usuarios> usuarios = usuarioService.getUsuarioBySegundoNombre(segundoNombre);
@@ -62,8 +59,6 @@ public class UsuariosController {
         }
         return ResponseEntity.ok(usuarios);
     }
-    @GetMapping("/primerApellido/{primerApellido}")
-    public ResponseEntity<List<Usuarios>> getUsuarioByPrimerApellido(@PathVariable("primerApellido") String primerApellido) {
     @GetMapping("/apellido/{primerApellido}")
     public ResponseEntity<List<Usuarios>> getUsuarioByPrimerApellido(@PathVariable("primerApellido") String primerApellido) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByPrimerApellido(primerApellido);
@@ -72,8 +67,6 @@ public class UsuariosController {
         }
         return ResponseEntity.ok(usuarios);
     }
-    @GetMapping("/segundoApellido/{segundoApellido}")
-    public ResponseEntity<List<Usuarios>> getUsuarioBySegundoApellido(@PathVariable("segundoApellido") String segundoApellido) {
     @GetMapping("/segundo-apellido/{segundoApellido}")
     public ResponseEntity<List<Usuarios>> getUsuarioBySegundoApellido(@PathVariable("segundoApellido") String segundoApellido) {
         List<Usuarios> usuarios = usuarioService.getUsuarioBySegundoApellido(segundoApellido);
@@ -84,15 +77,12 @@ public class UsuariosController {
     }
     @GetMapping("/correo/{correo}")
     public ResponseEntity<List<Usuarios>> getUsuarioByCorreo(@PathVariable("correo") String correo) {
-    public ResponseEntity<List<Usuarios>> getUsuarioByCorreo(@PathVariable("correo") String correo) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByCorreo(correo);
         if (usuarios.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(usuarios);
     }
-    @GetMapping("/fechaNacimiento/{fechaNacimiento}")
-    public ResponseEntity<List<Usuarios>> getUsuarioByFechaNacimiento(@PathVariable("fechaNacimiento") String fechaNacimiento) {
     @GetMapping("/fecha-nacimiento/{fechaNacimiento}")
     public ResponseEntity<List<Usuarios>> getUsuarioByFechaNacimiento(@PathVariable("fechaNacimiento") String fechaNacimiento) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByFechaNacimiento(fechaNacimiento);
@@ -102,7 +92,6 @@ public class UsuariosController {
         return ResponseEntity.ok(usuarios);
     }
     @GetMapping("/telefono/{telefono}")
-    public ResponseEntity<List<Usuarios>> getUsuarioByTelefono(@PathVariable("telefono") String telefono) {
     public ResponseEntity<List<Usuarios>> getUsuarioByTelefono(@PathVariable("telefono") String telefono) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByTelefono(telefono);
         if (usuarios.isEmpty()) {
