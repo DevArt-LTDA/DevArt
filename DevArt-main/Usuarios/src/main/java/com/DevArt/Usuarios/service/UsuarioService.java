@@ -68,6 +68,8 @@ public class UsuarioService {
                 .filter(usuario -> usuario.getFechaNacimiento().equals(fechaNacimiento))
                 .toList();
     }
+
+    
     //Get Usuario por el telefono
     public List<Usuarios> getUsuarioByTelefono(String telefono) {
         return usuariosRepository.findAll().stream()
