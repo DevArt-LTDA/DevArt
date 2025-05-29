@@ -3,6 +3,8 @@ import com.DevArt.Usuarios.model.Usuarios;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
+
+//Cesar Troll
 @Repository
 public interface TrabajadoresRepository extends JpaRepository<Usuarios, String> {
     List<Usuarios> findByRut(String rut);
