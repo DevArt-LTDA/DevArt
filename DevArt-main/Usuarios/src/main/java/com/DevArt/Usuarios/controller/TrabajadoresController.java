@@ -60,7 +60,7 @@ public class TrabajadoresController {
         return ResponseEntity.ok(trabajadores);
     }
 
-    @GetMapping("/primer-nombre/{primerNombre}")
+    @GetMapping("/primerNombre/{primerNombre}")
     public ResponseEntity<List<Trabajadores>> getTrabajadorByPrimerNombre(@PathVariable("primerNombre") String primerNombre) {
         List<Trabajadores> trabajadores = trabajadoresService.getTrabajadorByPrimerNombre(primerNombre);
         if (trabajadores.isEmpty()) {
@@ -69,7 +69,7 @@ public class TrabajadoresController {
         return ResponseEntity.ok(trabajadores);
     }
 
-    @GetMapping("/segundo-nombre/{segundoNombre}")
+    @GetMapping("/segundoNombre/{segundoNombre}")
     public ResponseEntity<List<Trabajadores>> getTrabajadorBySegundoNombre(@PathVariable("segundoNombre") String segundoNombre) {
         List<Trabajadores> trabajadores = trabajadoresService.getTrabajadorBySegundoNombre(segundoNombre);
         if (trabajadores.isEmpty()) {
