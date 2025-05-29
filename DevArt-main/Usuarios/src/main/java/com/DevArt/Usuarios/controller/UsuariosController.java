@@ -59,7 +59,7 @@ public class UsuariosController {
         }
         return ResponseEntity.ok(usuarios);
     }
-    @GetMapping("/apellido/{primerApellido}")
+    @GetMapping("/primerApellido/{primerApellido}")
     public ResponseEntity<List<Usuarios>> getUsuarioByPrimerApellido(@PathVariable("primerApellido") String primerApellido) {
         List<Usuarios> usuarios = usuarioService.getUsuarioByPrimerApellido(primerApellido);
         if (usuarios.isEmpty()) {
@@ -67,7 +67,9 @@ public class UsuariosController {
         }
         return ResponseEntity.ok(usuarios);
     }
-    @GetMapping("/segundo-apellido/{segundoApellido}")
+    //cambio ruta
+
+    @GetMapping("/segundoApellido/{segundoApellido}")
     public ResponseEntity<List<Usuarios>> getUsuarioBySegundoApellido(@PathVariable("segundoApellido") String segundoApellido) {
         List<Usuarios> usuarios = usuarioService.getUsuarioBySegundoApellido(segundoApellido);
         if (usuarios.isEmpty()) {
