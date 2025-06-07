@@ -124,6 +124,24 @@ public class UsuarioService {
     public boolean existeUsuarioPorRut(String rut) {
         return usuariosRepository.existsById(rut);
     }
+    // rol
+    public List<Usuarios> getUsuarioByRol(String rol) {
+        return usuariosRepository.findAll().stream()
+                .filter(usuario -> usuario.getRol().equalsIgnoreCase(rol))
+                .toList();
+    }
+    // departamento
+    public List<Usuarios> getUsuarioByDepartamento(String departamento) {
+        return usuariosRepository.findAll().stream()
+                .filter(usuario -> usuario.getDepartamento().equalsIgnoreCase(departamento))
+                .toList();
+    }
+    // cargo
+    public List<Usuarios> getUsuarioByCargo(String cargo) {
+        return usuariosRepository.findAll().stream()
+                .filter(usuario -> usuario.getCargo().equalsIgnoreCase(cargo))
+                .toList();
+    }
     
 }
 

@@ -6,14 +6,15 @@ import java.util.List;
 
 //Cesar Troll
 @Repository
-public interface TrabajadoresRepository extends JpaRepository<Usuarios, String> {
-    List<Usuarios> findByRut(String rut);
-    List<Usuarios> findByPrimerNombre(String primerNombre);
-    List<Usuarios> findBySegundoNombre(String segundoNombre);
-    List<Usuarios> findByPrimApellido(String primApellido);
-    List<Usuarios> findBySegApellido(String segApellido);
-    List<Usuarios> findByCorreo(String correo);
-    List<Usuarios> findByFechaNacimiento(String fechaNacimiento); 
-    List<Usuarios> findByTelefono(String telefono);
-    List<Usuarios> findByRol(String rol);
+public interface TrabajadoresRepository extends JpaRepository<Trabajadores, String> {
+    List<Trabajadores> findByRut(String rut);
+    List<Trabajadores> findByPrimerNombre(String primerNombre);
+    List<Trabajadores> findBySegundoNombre(String segundoNombre);
+    List<Trabajadores> findByPrimApellido(String primApellido);
+    List<Trabajadores> findBySegApellido(String segApellido);
+    List<Trabajadores> findByCorreo(String correo);
+    List<Trabajadores> findByFechaNacimiento(String fechaNacimiento); 
+    List<Trabajadores> findByTelefono(String telefono);
+    List<Trabajadores> findByRol(String rol);
+    
 }
