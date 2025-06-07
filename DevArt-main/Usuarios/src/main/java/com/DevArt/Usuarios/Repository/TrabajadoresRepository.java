@@ -1,5 +1,6 @@
 package com.DevArt.Usuarios.repository;
 import com.DevArt.Usuarios.model.Usuarios;
+import com.DevArt.Usuarios.model.Trabajadores;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
