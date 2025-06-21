@@ -1,13 +1,17 @@
 package com.DevArt.Usuarios.controller;
 
+import java.util.stream.Collectors;
+
 import com.DevArt.Usuarios.model.Usuarios;
 import com.DevArt.Usuarios.service.UsuarioService;
+
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,25 +21,44 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.MediaTypes;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+import com.DevArt.Usuarios.assemblers.OrderModelAssembler;
 import java.util.List;
 
 @Tag(name = "Usuarios", description = "Operaciones relacionadas con los usuarios")
 @RestController
+
 @RequestMapping("/api/v1/usuarios")
 public class UsuariosController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @RequestMapping("/error")
-    public String handleError() {
-        return "forward:/index.html";
-    }
+    @Autowired 
+    private OrderModelAssembler assembler;
+
 
     @Operation(summary = "Obtener todos los usuarios", description = "Retorna una lista con todos los usuarios registrados en el sistema")
-    @GetMapping
-    public ResponseEntity<List<Usuarios>> getUsuarios() {
-        return ResponseEntity.ok(usuarioService.getAllUsuarios());
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "404", description = "Carrera no encontrada")
+    })
+
+    @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
+    public ResponseEntity<CollectionModel<EntityModel<Usuarios>>> getUsuarios() {
+       List<EntityModel<Usuarios>> usuarios = usuarioService.getAllUsuarios().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(CollectionModel.of(usuarios,
+        linkTo(methodOn(UsuariosController.class).getUsuarios()).withSelfRel()));
     }
+
+    
 
     @Operation(summary = "Verificar si existe un usuario por RUT", description = "Retorna true si el usuario con ese RUT existe")
     @GetMapping("/existe/{rut}")
