@@ -32,7 +32,7 @@ public class UsuariosApplicationTests {
 		assertThat(usuarioController).isNotNull();
 	}
 
-
+	// Get
 	@Test
 	public void testGetUsuarios() throws Exception {
 		System.out.println("Testing the getUsuarios method...");
@@ -42,7 +42,7 @@ public class UsuariosApplicationTests {
 		System.out.println("Response: " + response);
 	}
 
-
+	// Get
 	@Test
 	public void testGetUsuariosByRut() throws Exception {
 		System.out.println("Testing the getUsuariosById method...");
@@ -52,6 +52,7 @@ public class UsuariosApplicationTests {
 		System.out.println("Response: " + response);
 	}
 
+	// Get
 	@Test
 	public void testGetUsuarioPrimerNombre() throws Exception {
 		System.out.println("Testing the getUsuarioPrimerNombre method...");
@@ -61,6 +62,7 @@ public class UsuariosApplicationTests {
 		System.out.println("Response: " + response);
 	}
 
+	// Get
 	@Test 
 	public void testGetUsuarioSegundoNombre() throws Exception {
 		System.out.println("Testing the getUsuarioSegundoNombre method...");
@@ -70,6 +72,7 @@ public class UsuariosApplicationTests {
 		System.out.println("Response: " + response);
 	}
 
+   //Get
 	@Test 
 	public void testGetUsuarioPrimerApellido() throws Exception {
 		System.out.println("Testing the getUsuarioPrimerApellido method...");
@@ -79,20 +82,58 @@ public class UsuariosApplicationTests {
 		System.out.println("Response: " + response);
 	}
 
-	@Test
-	public void testCreateUsuario() throws Exception {
-		System.out.println("Testing the createUsuario method...");
-		String url = "http://localhost:" + port + "/api/v1/usuarios";
-		String newUsuario = "{\"rut\":\"33.333.333-3\",\"nombre\":\"Juan\",\"apellido\":\"Perez\",\"email\":\"juan.perez@email.com\"}";
-
-		var response = this.restTemplate.postForEntity(url, newUsuario, String.class);
-		assertThat(response.getStatusCodeValue()).isEqualTo(201);
-		assertThat(response.getBody()).contains("33.333.333-3");
-		assertThat(response.getBody()).contains("Juan");
-		assertThat(response.getBody()).contains("Perez");
-		assertThat(response.getBody()).contains("juan.perez@email.com");
-		System.out.println("Response: " + response.getBody());
+	// Get
+	@Test 
+	public void testGetUsuarioSegundoApellido() throws Exception{
+		System.out.println("Testing the get usuario segundo apellido method");
+		String url = "http://localhost:" + port + "/api/v1/usuarios/segundoApellido/Donoso";
+		String response = this.restTemplate.getForObject(url, String.class);
+		assertThat(response).contains("Donoso");
 	}
+
+	// Get
+	@Test 
+	public void testGetUsuarioCorreo() throws Exception{
+		System.out.println("Testing de usuario correo method");
+		String url = "http://localhost:" + port + "/api/v1/usuarios/correo/aa.lorca@duocuc.cl";
+		String response = this.restTemplate.getForObject(url,String.class);
+		assertThat(response).contains("aa.lorca@duocuc.cl");
+	}
+
+	// Get
+	@Test 
+	public void testGetUsuarioFechaDeNacimiento() throws Exception{
+		System.out.println("Testing de usuario fechha de nacimiento method");
+		String url = "http://localhost:" + port + "/api/v1/usuarios/fechaNacimiento/1990/06/09";
+		String response = this.restTemplate.getForObject(url, String.class);
+		assertThat(response).contains("1990/06/09");
+	}
+
+   //Get
+	@Test
+	public void testGetUsuarioTelefono() throws Exception {
+		System.out.println("Testing de usuario Numero Telefono method");
+		String url = "http://localhost:" + port + "/api/v1/usuarios/telefono/123456789";
+		String response = this.restTemplate.getForObject(url, String.class);
+		assertThat(response).contains("123456789");
+	}
+
+
+
+	// // Creacion de Post
+	// @Test
+	// public void testCreateUsuario() throws Exception {
+	// 	System.out.println("Testing the createUsuario method...");
+	// 	String url = "http://localhost:" + port + "/api/v1/usuarios";
+	// 	String newUsuario = "{\"rut\":\"33.333.333-3\",\"nombre\":\"Juan\",\"apellido\":\"Perez\",\"email\":\"juan.perez@email.com\"}";
+	// 	var response = this.restTemplate.postForEntity(url, newUsuario, String.class);
+	// 	assertThat(response.getStatusCodeValue()).isEqualTo(201);
+	// 	assertThat(response.getBody()).contains("33.333.333-3");
+	// 	assertThat(response.getBody()).contains("Juan");
+	// 	assertThat(response.getBody()).contains("Perez");
+	// 	assertThat(response.getBody()).contains("juan.perez@email.com");
+	// 	System.out.println("Response: " + response.getBody());
+	// }
 	
 
 
