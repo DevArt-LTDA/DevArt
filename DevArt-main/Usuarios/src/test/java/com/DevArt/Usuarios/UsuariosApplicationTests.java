@@ -115,8 +115,6 @@ public class UsuariosApplicationTests {
 		System.out.println("Testing de usuario Numero Telefono method");
 		String url = "http://localhost:" + port + "/api/v1/usuarios/telefono/123456789";
 		String response = this.restTemplate.getForObject(url, String.class);
-		System.out.println("Respuesta abajo response!");
-		System.out.println("Response: " + response);
 		assertThat(response).contains("123456789");
 	}
 
