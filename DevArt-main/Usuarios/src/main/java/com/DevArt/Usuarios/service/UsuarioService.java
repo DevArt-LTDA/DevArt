@@ -69,13 +69,13 @@ public class UsuarioService {
                 .filter(usuario -> usuario.getFechaNacimiento().equals(fechaNacimiento))
                 .toList();
     }
-    //Get Usuario por el telefono
+        //Get Usuario por el telefono
     public List<Usuarios> getUsuarioByTelefono(String telefono) {
         return usuariosRepository.findAll().stream()
-                .filter(usuario -> usuario.getTelefono() == telefono)
+                .filter(usuario -> usuario.getTelefono().equals(telefono))
                 .toList();
     }
-
+    
 
 
     //creacion de un nuveo usuario
