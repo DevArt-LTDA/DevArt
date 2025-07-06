@@ -1,4 +1,4 @@
-package com.DevArt.Usuarios.repository;
+package com.DevArt.Usuarios.Repository;
 import com.DevArt.Usuarios.model.Trabajadores;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
