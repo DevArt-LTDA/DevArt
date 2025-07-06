@@ -58,33 +58,13 @@ public class InventariosController {
         return ResponseEntity.ok(lista);
     }
 
-    // Buscar por horas disponibles all 
-
-    @GetMapping("/horas")
-    public ResponseEntity<?> buscarPorHorasDisponibles() {
-        List<Inventario> lista = inventariosService.obtenerTodos();
-        if (lista.isEmpty()) {
-            return ResponseEntity.status(404).body("No hay inventarios registrados.");
-        }
-        return ResponseEntity.ok(lista);
-    }
-
-    // Buscar por todas las horas disponibles
+    // Buscar por horas disponibles
     @GetMapping("/horas/{horas}")
-    public ResponseEntity<?> buscarPorHorasDisponibles(@PathVariable("horas") int horas) {
+    public ResponseEntity<?> buscarPorHoras(@PathVariable("horas") int horas) {
         List<Inventario> lista = inventariosService.buscarPorHorasDisponibles(horas);
         if (lista.isEmpty()) {
-            return ResponseEntity.status(404).body("No se encontraron inventarios con " + horas + " horas disponibles.");
-        }
-        return ResponseEntity.ok(lista);
-    }
-
-    // Buscar estados all
-    @GetMapping("/estado")
-    public ResponseEntity<?> buscarPorEstado() {
-        List<Inventario> lista = inventariosService.obtenerTodos();
-        if (lista.isEmpty()) {
-            return ResponseEntity.status(404).body("No hay inventarios registrados.");
+            return ResponseEntity.status(404)
+                    .body("No se encontraron inventarios con " + horas + " horas disponibles.");
         }
         return ResponseEntity.ok(lista);
     }

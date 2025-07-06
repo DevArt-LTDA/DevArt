@@ -37,9 +37,6 @@ public class InventariosService {
         return inventarios.findByRutProgramador(rut);
     }
 
-    // Buscar por horas disponibles general
-    
-
     public List<Inventario> buscarPorHorasDisponibles(int horas) {
         return inventarios.findByHoraDisponible(horas);
     }

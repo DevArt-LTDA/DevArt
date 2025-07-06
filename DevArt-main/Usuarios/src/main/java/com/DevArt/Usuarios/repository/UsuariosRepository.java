@@ -1,5 +1,5 @@
-package java.com.DevArt.Usuarios.repository;
-import java.com.DevArt.Usuarios.model.Usuarios;
+package com.DevArt.Usuarios.repository;
+import com.DevArt.Usuarios.model.Usuarios;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,5 +18,7 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, String> {
     List<Usuarios> findByCorreo(String correo);
     List<Usuarios> findByFechaNacimiento(String fechaNacimiento); 
     List<Usuarios> findByTelefono(String telefono);
+
+
 }
 
