@@ -153,7 +153,6 @@ public class UsuariosController {
         return ResponseEntity.ok(usuarios);
     }
 
-
     @Operation(summary = "Crear un nuevo usuario", description = "Agrega un nuevo usuario al sistema")
     @PostMapping
     public ResponseEntity<Usuarios> createUsuario(@RequestBody Usuarios usuario) {
