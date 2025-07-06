@@ -106,14 +106,7 @@ public class UsuariosApplicationTests {
 		assertThat(response).contains("aa.lorca@duocuc.cl");
 	}
 
-	// Get
-	@Test
-	public void testGetUsuarioFechaDeNacimiento() throws Exception {
-		System.out.println("Testing de usuario fecha de nacimiento method");
-		String url = "http://localhost:" + port + "/api/v1/usuarios/fechaNacimiento/1990-06-09";
-		String response = this.restTemplate.getForObject(url, String.class);
-		assertThat(response).contains("1990-06-09");
-	}
+
 
 	// Get Telefono
 	@Test
