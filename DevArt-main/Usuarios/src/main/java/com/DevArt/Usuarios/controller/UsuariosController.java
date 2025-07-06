@@ -110,6 +110,8 @@ public class UsuariosController {
     }
 
     @Operation(summary = "Obtener usuarios por segundo apellido", description = "Busca usuarios que coincidan con el segundo apellido")
+    //cambio ruta
+
     @GetMapping("/segundoApellido/{segundoApellido}")
     public ResponseEntity<List<Usuarios>> getUsuarioBySegundoApellido(
             @PathVariable("segundoApellido") String segundoApellido) {
