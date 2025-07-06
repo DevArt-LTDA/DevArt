@@ -2,7 +2,6 @@ package com.DevArt.Usuarios.service;
 
 import com.DevArt.Usuarios.model.Usuarios;
 import com.DevArt.Usuarios.repository.UsuariosRepository;
-
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,13 +68,13 @@ public class UsuarioService {
                 .filter(usuario -> usuario.getFechaNacimiento().equals(fechaNacimiento))
                 .toList();
     }
-    //Get Usuario por el telefono
+        //Get Usuario por el telefono
     public List<Usuarios> getUsuarioByTelefono(String telefono) {
         return usuariosRepository.findAll().stream()
-                .filter(usuario -> usuario.getTelefono() == telefono)
+                .filter(usuario -> usuario.getTelefono().equals(telefono))
                 .toList();
     }
-
+    
 
 
     //creacion de un nuveo usuario

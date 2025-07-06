@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 @Service
 @Transactional
 
-// Traspaso a main
 
 public class CatalogoService {
     @Autowired
