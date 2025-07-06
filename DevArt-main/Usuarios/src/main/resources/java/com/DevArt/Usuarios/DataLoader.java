@@ -1,8 +1,8 @@
-package com.DevArt.Usuarios;
+package java.com.DevArt.Usuarios;
 
-import com.DevArt.Usuarios.repository.UsuariosRepository;
-import com.DevArt.Usuarios.repository.TrabajadoresRepository;
-import com.DevArt.Usuarios.model.*;
+import java.com.DevArt.Usuarios.repository.UsuariosRepository;
+import java.com.DevArt.Usuarios.repository.TrabajadoresRepository;
+import java.com.DevArt.Usuarios.model.*;
 import net.datafaker.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

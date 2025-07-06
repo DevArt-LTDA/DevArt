@@ -1,4 +1,4 @@
-package com.DevArt.Usuarios.model;
+package java.com.DevArt.Usuarios.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Column;

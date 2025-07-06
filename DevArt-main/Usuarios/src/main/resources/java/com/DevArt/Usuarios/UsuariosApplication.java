@@ -1,4 +1,4 @@
-package com.DevArt.Usuarios;
+package java.com.DevArt.Usuarios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

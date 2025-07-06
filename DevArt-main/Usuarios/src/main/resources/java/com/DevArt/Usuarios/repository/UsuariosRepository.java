@@ -1,5 +1,5 @@
-package com.DevArt.Usuarios.repository;
-import com.DevArt.Usuarios.model.Usuarios;
+package java.com.DevArt.Usuarios.repository;
+import java.com.DevArt.Usuarios.model.Usuarios;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,7 +1,7 @@
-package com.DevArt.Usuarios.service;
+package java.com.DevArt.Usuarios.service;
 
-import com.DevArt.Usuarios.model.Usuarios;
-import com.DevArt.Usuarios.repository.UsuariosRepository;
+import java.com.DevArt.Usuarios.model.Usuarios;
+import java.com.DevArt.Usuarios.repository.UsuariosRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
