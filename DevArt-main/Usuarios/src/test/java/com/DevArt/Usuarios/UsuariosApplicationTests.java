@@ -122,20 +122,20 @@ public class UsuariosApplicationTests {
 
 
 
-	// // Creacion de Post
-	// @Test
-	// public void testCreateUsuario() throws Exception {
-	// 	System.out.println("Testing the createUsuario method...");
-	// 	String url = "http://localhost:" + port + "/api/v1/usuarios";
-	// 	String newUsuario = "{\"rut\":\"33.333.333-3\",\"nombre\":\"Juan\",\"apellido\":\"Perez\",\"email\":\"juan.perez@email.com\"}";
-	// 	var response = this.restTemplate.postForEntity(url, newUsuario, String.class);
-	// 	assertThat(response.getStatusCodeValue()).isEqualTo(201);
-	// 	assertThat(response.getBody()).contains("33.333.333-3");
-	// 	assertThat(response.getBody()).contains("Juan");
-	// 	assertThat(response.getBody()).contains("Perez");
-	// 	assertThat(response.getBody()).contains("juan.perez@email.com");
-	// 	System.out.println("Response: " + response.getBody());
-	// }
+	// Creacion de Post
+	@Test
+	public void testCreateUsuario() throws Exception {
+		System.out.println("Testing the createUsuario method...");
+		String url = "http://localhost:" + port + "/api/v1/usuarios";
+		String newUsuario = "{\"rut\":\"33.333.333-3\",\"nombre\":\"Juan\",\"apellido\":\"Perez\",\"email\":\"juan.perez@email.com\"}";
+		var response = this.restTemplate.postForEntity(url, newUsuario, String.class);
+		assertThat(response.getStatusCodeValue()).isEqualTo(201);
+		assertThat(response.getBody()).contains("33.333.333-3");
+		assertThat(response.getBody()).contains("Juan");
+		assertThat(response.getBody()).contains("Perez");
+		assertThat(response.getBody()).contains("juan.perez@email.com");
+		System.out.println("Response: " + response.getBody());
+	}
 	
 
 
