@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . ./
 
 # Cambiar a la carpeta donde está el proyecto Gradle
-WORKDIR /app/DevArt-main
+WORKDIR /app/DevArt-main/Usuarios
 
 
 # Construir la app
