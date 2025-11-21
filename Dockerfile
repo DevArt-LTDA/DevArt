@@ -1,17 +1,20 @@
-# Use the Eclipse temurin alpine official image
+# Use the Eclipse Temurin alpine official image
 FROM eclipse-temurin:21-jdk-alpine
 
-# Create and change to the app directory.
+# Carpeta de trabajo base
 WORKDIR /app
 
-# Copy local code to the container image.
+# Copiar todo el repo al contenedor
 COPY . ./
 
-# Dar permiso de ejecución al wrapper de Gradle
-RUN chmod +x ./gradlew
+# Cambiar a la carpeta donde está el proyecto Gradle
+WORKDIR /app/DevArt-main
 
-# Build the app.
+# Dar permiso de ejecución al wrapper de Gradle
+RUN chmod +x gradlew
+
+# Construir la app
 RUN ./gradlew clean build -x test
 
-# Run the app by dynamically finding the JAR file in the target directory
-CMD ["sh", "-c", "java -jar build/libs/njdemo-0.0.1-SNAPSHOT.jar"]
+# Ejecutar la app (usamos comodín por si cambia el nombre del JAR)
+CMD ["sh", "-c", "java -jar build/libs/*.jar"]
