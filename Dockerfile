@@ -10,8 +10,6 @@ COPY . ./
 # Cambiar a la carpeta donde está el proyecto Gradle
 WORKDIR /app/DevArt-main
 
-# Dar permiso de ejecución al wrapper de Gradle
-RUN chmod +x gradlew
 
 # Construir la app
 RUN ./gradlew clean build -x test
