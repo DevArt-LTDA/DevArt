@@ -2,7 +2,7 @@
 FROM eclipse-temurin:21-jdk-alpine
 
 # Carpeta de trabajo base
-WORKDIR /app
+WORKDIR /DEVART
 
 # Copiar todo el repo al contenedor
 COPY . ./
